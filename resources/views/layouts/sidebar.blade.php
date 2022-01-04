@@ -8,28 +8,28 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Menu Principale</li>
-                    <li><a href="#" aria-expanded="false"><i class="icon icon-globe-2"></i><span
-                                class="nav-text">Tableau de bord</span></a></li>
+                    <li><a href="/" aria-expanded="false"><i class="fa fa-tachometer"></i><span
+                                class="nav-text">Dashboard</span></a></li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Theme</span></a>
+                                class="fa fa-bookmark"></i><span class="nav-text">Theme</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Ajouter un theme</a></li>
+                            <li><a href="/themes">Theme</a></li>
+                            <li><a href="/themes/forms">Ajouter un theme</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Categories</span></a>
+                                class="fa fa-glass"></i><span class="nav-text">Categories</span></a>
                         <ul aria-expanded="false">
                             <li><a href="#">Categories</a></li>
                             <li><a href="#">Ajouter une categorie</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-book"></i><span class="nav-text">Livres</span></a>
+                                class="fa fa-book"></i><span class="nav-text">Livres</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Livres</a></li>
-                            <li><a href="#">Ajouter un livre</a></li>
+                            <li><a href="/livres">Livres</a></li>
+                            <li><a href="/livres/forms">Ajouter un livre</a></li>
                         </ul>
                     </li>
                     <!--

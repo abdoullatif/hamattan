@@ -51,12 +51,13 @@
                                             <span class="success"><i class="ti-user"></i></span>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
+                                                    <p><strong>Livre</strong> a ete vendu a <strong>client</strong> avec succes
                                                     </p>
                                                 </a>
                                             </div>
-                                            <span class="notify-time">3:20 am</span>
+                                            <span class="notify-time">10:20 am</span>
                                         </li>
+                                        <!--
                                         <li class="media dropdown-item">
                                             <span class="primary"><i class="ti-shopping-cart"></i></span>
                                             <div class="media-body">
@@ -95,6 +96,7 @@
                                             </div>
                                             <span class="notify-time">3:20 am</span>
                                         </li>
+                                        -->
                                     </ul>
                                     <a class="all-notification" href="#">See all notifications <i
                                             class="ti-arrow-right"></i></a>
@@ -105,6 +107,7 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
+                                    <!--
                                     <a href="./app-profile.html" class="dropdown-item">
                                         <i class="icon-user"></i>
                                         <span class="ml-2">Profile </span>
@@ -112,10 +115,10 @@
                                     <a href="./email-inbox.html" class="dropdown-item">
                                         <i class="icon-envelope-open"></i>
                                         <span class="ml-2">Inbox </span>
-                                    </a>
+                                    </a>-->
                                     <a href="./page-login.html" class="dropdown-item">
                                         <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
+                                        <span class="ml-2">Se Deconnecter </span>
                                     </a>
                                 </div>
                             </li>
