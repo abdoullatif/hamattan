@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,21 @@ Route::get('/themes', [ThemeController::class, 'index'])->name('themes');
 Route::get('/themes/forms', [ThemeController::class, 'showFormsThemes'])->name('themes.forms');
 //Add Theme
 Route::get('/themes/add', [ThemeController::class, 'storeThemes'])->name('themes.add');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Categorie route
+|
+*/
+//Theme
+//Add Categories
+Route::get('/categories', [CategorieController::class, 'index'])->name('categories');
+//Add Categories
+Route::get('/categories/forms', [CategorieController::class, 'showFormsCategories'])->name('categories.forms');
+//Add Categories
+Route::get('/categories/add', [CategorieController::class, 'storeCategories'])->name('categories.add');
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -21,8 +21,8 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="fa fa-glass"></i><span class="nav-text">Categories</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Categories</a></li>
-                            <li><a href="#">Ajouter une categorie</a></li>
+                            <li><a href="/categories">Categories</a></li>
+                            <li><a href="/categories/forms">Ajouter une categorie</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
@@ -30,6 +30,7 @@
                         <ul aria-expanded="false">
                             <li><a href="/livres">Livres</a></li>
                             <li><a href="/livres/forms">Ajouter un livre</a></li>
+                            <li><a href="#">Ajouter du contenu</a></li>
                         </ul>
                     </li>
                     <!--
