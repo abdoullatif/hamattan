@@ -25,6 +25,23 @@
                 </div>
                 <!-- end breadcrump -->
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
@@ -38,20 +55,21 @@
                                                 <th>#</th>
                                                 <th>couverture</th>
                                                 <th>Thematique</th>
-                                                <!--<th>Status</th>-->
-                                                <th>Date</th>
+                                                <!--<th>Status</th>
+                                                <th>Date</th>-->
                                                 <!--<th>Price</th>-->
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($themes as $theme)
                                             <tr>
                                                 <th>1</th>
-                                                <td><img src="{{ asset('uploads/themes/9782343226934b.jpg') }}" alt="Thematique" width="100" height="" /></td>
-                                                <td>Arts et spectacle</td>
+                                                <td><img src="{{ asset('uploads/themes/'.$theme->couverture_theme.'') }}" alt="Thematique" width="100" height="" /></td>
+                                                <td>{{ $theme->nom_theme }}</td>
                                                 <!--<td><span class="badge badge-primary">Sale</span>
-                                                </td>-->
-                                                <td>January 22</td>
+                                                </td>
+                                                <td>January 22</td>-->
                                                 <!--<td class="color-primary">$21.56</td>-->
                                                 <td>
                                                     <span>
@@ -64,6 +82,7 @@
                                                     </span>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                             <!--
                                             <tr>
                                                 <th>2</th>

@@ -25,6 +25,23 @@
                 </div>
                 <!-- end breadcrump -->
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+
                 <div class="col-xl-6 col-xxl-12">
                     <div class="card">
                             <div class="card-header">
@@ -32,40 +49,39 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form>
+                                    <form action="{{ route('livres.add') }}" method="post" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-default " placeholder="Titre">
+                                            <input type="text" name="titre" class="form-control input-default " placeholder="Titre">
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>Theme</label>
-                                            <select class="form-control" id="sel1">
-                                                <option>Arts et spectacle</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select class="form-control" name="theme_id" id="sel1">
+                                                @foreach($themes as $theme)
+                                                <option value="{{ $theme->id }}">{{ $theme->nom_theme }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Categories</label>
-                                            <select class="form-control" id="sel1">
-                                                <option>Ecrit</option>
-                                                <option>Audio</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select class="form-control" name="categorie_id" id="sel1">
+                                                @foreach($categories as $categorie)
+                                                <option value="{{ $categorie->id }}">{{ $categorie->categorie }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="4" id="comment" placeholder="Resumer du livre"></textarea>
+                                            <textarea class="form-control" name="resume_livre" rows="4" id="comment" placeholder="Resumer du livre"></textarea>
                                         </div>
 
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="4" id="comment" placeholder="Biographie de l'auteur"></textarea>
+                                            <textarea class="form-control" rows="4" name="biographie_auteur" id="comment" placeholder="Biographie de l'auteur"></textarea>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-default " placeholder="prix">
+                                            <input type="text" class="form-control input-default " name="prix" placeholder="prix">
                                         </div>
 
                                         <div class="input-group mb-3">
@@ -73,7 +89,7 @@
                                                 <span class="input-group-text">Selectionner une couverture</span>
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
+                                                <input type="file" name="image" class="custom-file-input">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>

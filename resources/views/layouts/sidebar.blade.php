@@ -30,7 +30,7 @@
                         <ul aria-expanded="false">
                             <li><a href="/livres">Livres</a></li>
                             <li><a href="/livres/forms">Ajouter un livre</a></li>
-                            <li><a href="#">Ajouter du contenu</a></li>
+                            <li><a href="/livres/content">Ajouter du contenu</a></li>
                         </ul>
                     </li>
                     <!--

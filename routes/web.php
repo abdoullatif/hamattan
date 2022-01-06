@@ -43,7 +43,7 @@ Route::get('/themes', [ThemeController::class, 'index'])->name('themes');
 //Add Theme interface
 Route::get('/themes/forms', [ThemeController::class, 'showFormsThemes'])->name('themes.forms');
 //Add Theme
-Route::get('/themes/add', [ThemeController::class, 'storeThemes'])->name('themes.add');
+Route::post('/themes/add', [ThemeController::class, 'storeThemes'])->name('themes.add');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,13 +52,13 @@ Route::get('/themes/add', [ThemeController::class, 'storeThemes'])->name('themes
 | Categorie route
 |
 */
-//Theme
+//Categories
 //Add Categories
 Route::get('/categories', [CategorieController::class, 'index'])->name('categories');
 //Add Categories
 Route::get('/categories/forms', [CategorieController::class, 'showFormsCategories'])->name('categories.forms');
 //Add Categories
-Route::get('/categories/add', [CategorieController::class, 'storeCategories'])->name('categories.add');
+Route::post('/categories/add', [CategorieController::class, 'storeCategories'])->name('categories.add');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,3 +71,7 @@ Route::get('/categories/add', [CategorieController::class, 'storeCategories'])->
 Route::get('/livres', [LivreController::class, 'index'])->name('livres');
 //Add Livre interface
 Route::get('/livres/forms', [LivreController::class, 'showFormsLivres'])->name('livres.forms');
+//Add Livre
+Route::post('/livres/add', [LivreController::class, 'storeLivres'])->name('livres.add');
+//Add Livre contenue
+Route::get('/livres/content', [LivreController::class, 'storeLivresContent'])->name('livres.content');

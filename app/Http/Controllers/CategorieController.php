@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
     //index function
     public function index (){
-        return view("categories");
+        $categories = Categorie::get();
+        return view("categories",compact('categories'));
     }
 
     //Show Controller (Afficher kes themes)
@@ -17,8 +19,20 @@ class CategorieController extends Controller
     }
 
     //Show Controller (Afficher kes themes)
-    public function storeCategories (){
-        return view("categories");
+    public function storeCategories (Request $request){
+        //Require
+        $request->validate([
+            'categorie' => 'required',
+        ]);
+
+        $categorie = new Categorie;
+        $categorie->categorie = $request->categorie;
+        $categorie->save();
+
+        return redirect()->route('categories')
+                        ->with('success','categories enregistrer avec succes.');
+
+        //return view("categories");
     }
 
 }

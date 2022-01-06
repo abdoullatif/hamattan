@@ -25,6 +25,23 @@
                 </div>
                 <!-- end -->
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> Il y a eu des problèmes avec votre entrée.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+
                 <div class="col-xl-6 col-xxl-12">
                     <div class="card">
                             <div class="card-header">
@@ -32,9 +49,10 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form>
+                                    <form action="{{ route('themes.add') }}" method="post" enctype="multipart/form-data" >
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control input-default " placeholder="Theme">
+                                            <input type="text" name="theme" class="form-control input-default " placeholder="Theme">
                                         </div>
                                         <!--
                                         <div class="form-group">
@@ -52,7 +70,7 @@
                                                 <span class="input-group-text">Selectionner une couverture</span>
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
+                                                <input type="file" name="image" class="custom-file-input">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
                                         </div>

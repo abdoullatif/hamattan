@@ -5,8 +5,11 @@
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('assets/images/logo.png') }}" alt="">
+                <!--
                 <img class="logo-compact" src="{{ asset('assets/images/logo-text.png') }}" alt="">
                 <img class="brand-title" src="{{ asset('assets/images/logo-text.png') }}" alt="">
+                -->
+                <h3 class="brand-title" style="color: white;">armattan</h3>
             </a>
 
             <div class="nav-control">
@@ -98,7 +101,7 @@
                                         </li>
                                         -->
                                     </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
+                                    <a class="all-notification" href="#">Voir toute les notifications <i
                                             class="ti-arrow-right"></i></a>
                                 </div>
                             </li>
