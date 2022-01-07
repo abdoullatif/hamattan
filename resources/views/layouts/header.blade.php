@@ -36,7 +36,7 @@
                                 </span>
                                 <div class="dropdown-menu p-0 m-0">
                                     <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                        <input class="form-control" type="search" placeholder="Rehercher" aria-label="Search">
                                     </form>
                                 </div>
                             </div>
@@ -119,7 +119,11 @@
                                         <i class="icon-envelope-open"></i>
                                         <span class="ml-2">Inbox </span>
                                     </a>-->
-                                    <a href="./page-login.html" class="dropdown-item">
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-info-circle"></i>
+                                        <span class="ml-2">Mes informations </span>
+                                    </a>
+                                    <a href="/" class="dropdown-item">
                                         <i class="icon-key"></i>
                                         <span class="ml-2">Se Deconnecter </span>
                                     </a>

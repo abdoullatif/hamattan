@@ -29,7 +29,9 @@ Route::get('/', function () {
 |
 */
 //Dashboard
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('login');
+//Dashboard
+Route::get('/home', [HomeController::class, 'showDashboad'])->name('home');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,4 +76,6 @@ Route::get('/livres/forms', [LivreController::class, 'showFormsLivres'])->name('
 //Add Livre
 Route::post('/livres/add', [LivreController::class, 'storeLivres'])->name('livres.add');
 //Add Livre contenue
-Route::get('/livres/content', [LivreController::class, 'storeLivresContent'])->name('livres.content');
+Route::get('/livres/edit/{livre_id}', [LivreController::class, 'editLivres'])->name('livres.edit');
+//Add Livre contenue
+Route::get('/livres/update', [LivreController::class, 'updateLivres'])->name('livres.update');

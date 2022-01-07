@@ -13,7 +13,7 @@
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Thematique</h4>
-                            <span class="ml-1">Theme</span>
+                            <!--<span class="ml-1">Theme</span>-->
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">

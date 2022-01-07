@@ -14,10 +14,10 @@
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
                                     <div class="stat-text">Thematique </div>
-                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>850-->0</div>
+                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>850--> {{ $theme }}</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-success w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-success w-{{ $theme }}" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -27,10 +27,10 @@
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
                                     <div class="stat-text">Livre ecrit</div>
-                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>780-->0</div>
+                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>780--> {{ $page }}</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-primary w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-primary w-{{ $page }}" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -40,10 +40,10 @@
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
                                     <div class="stat-text">Livre audio</div>
-                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i> 50-->0</div>
+                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i> 50--> {{ $audio }}</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-warning w-{{ $audio }}" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -52,11 +52,11 @@
                         <div class="card">
                             <div class="stat-widget-two card-body">
                                 <div class="stat-content">
-                                    <div class="stat-text">Vendu</div>
-                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>65-->0</div>
+                                    <div class="stat-text">Total Livre</div>
+                                    <div class="stat-digit"> <!--<i class="fa fa-usd"></i>65--> {{ $livre }}</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-danger w-{{ $livre }}" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>

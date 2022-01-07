@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+use App\Models\Audio;
 use App\Models\Livre;
 use App\Models\Theme;
 use App\Models\Categorie;
-use App\Models\Livre_categorie;
 use Illuminate\Http\Request;
+use App\Models\Livre_categorie;
+use Illuminate\Support\Facades\DB;
 
 class LivreController extends Controller
 {
@@ -29,19 +32,59 @@ class LivreController extends Controller
 
     //Show Controller (Afficher kes themes)
     public function storeLivres (Request $request){
+
         //Require
         $request->validate([
-            'titre' => 'required',
+            'titre' => 'required|unique:livre',
             'theme_id' => 'required',
-            'categorie_id' => 'required',
+            'categorie' => 'required',
             'resume_livre' => 'required',
             'biographie_auteur' => 'required',
             'prix' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
 
+        if($request->categorie == "Ecriture") {
+            $request->validate([
+                'page' => 'required|mimes:pdf', //required|doc|mimes:pdf|max:10024
+            ]);
+            if ($image = $request->file('page')) {
+                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->page = "$profileImage";
+            }
+        } else if ($request->categorie == "Audio") {
+            $request->validate([
+                'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav', //required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav //required|audio|mimes:mp3,aac,mp4a|max:10024
+            ]);
+            if ($image = $request->file('audio')) {
+                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->audio = "$profileImage";
+            }
+        } else if ($request->categorie == "Ecriture + Audio") {
+            $request->validate([
+                'page' => 'required|mimes:pdf',
+                'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+            ]);
+            if ($image = $request->file('page')) {
+                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->page = "$profileImage";
+            }
+            if ($image = $request->file('audio')) {
+                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->audio = "$profileImage";
+            }
+        }
+
         if ($image = $request->file('image')) {
-            $destinationPath = 'uploads/livres/';
+            $destinationPath = 'uploads/livres/'.$request->titre.'/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request->image = "$profileImage";
@@ -53,6 +96,7 @@ class LivreController extends Controller
         $livre->titre = $request->titre;
         $livre->theme_id = $request->theme_id;
         $livre->statut = '1';
+        $livre->categorie = $request->categorie;
         $livre->resume_livre = $request->resume_livre;
         $livre->biographie_auteur = $request->biographie_auteur;
         $livre->prix = $request->prix;
@@ -60,12 +104,31 @@ class LivreController extends Controller
         $livre->date_publication = now();
         $livre->save();
 
-        //livre_categorie
-
-        $livre_categorie = new Livre_categorie;
-        $livre_categorie->livre_id = $livre->id;
-        $livre_categorie->categorie_id = $request->categorie_id;
-        $livre_categorie->save();
+        //audio und pdf
+        if($request->categorie == "Ecriture") {
+            //Page
+            $page = new Page;
+            $page->livre_id = $livre->id;
+            $page->page_livre = $request->page;
+            $page->save();
+        } else if ($request->categorie == "Audio") {
+            //Audio
+            $audio = new Audio;
+            $audio->livre_id = $livre->id;
+            $audio->contenue_audio = $request->audio;
+            $audio->save();
+        } else if ($request->categorie == "Ecriture + Audio") {
+            //Page
+            $page = new Page;
+            $page->livre_id = $livre->id;
+            $page->page_livre = $request->page;
+            $page->save();
+            //Audio
+            $audio = new Audio;
+            $audio->livre_id = $livre->id;
+            $audio->contenue_audio = $request->audio;
+            $audio->save();
+        }
 
         return redirect()->route('livres')
                         ->with('success','Livre enregistrer avec succes.');
@@ -73,8 +136,20 @@ class LivreController extends Controller
         //return view("livres");
     }
 
-    //Show add livre
-    public function storeLivresContent (){
-        return view("formslivrescontent");
+    //Edit livre
+    public function editLivres ($livre_id){
+        //dd($livre_id);
+        $themes = Theme::get();
+        $livre = DB::table('livre')->where('id',$livre_id)->get();
+        $page = DB::table('page')->where('livre_id',$livre_id)->get();
+        $audio = DB::table('audio')->where('livre_id',$livre_id)->get();
+        
+        //$livre = DB::select('SELECT * FROM livre WHERE name = ?',[]);
+        return view("editlivres",compact('themes','livre','page','audio'));
+    }
+
+    //Update livre
+    public function updateLivres (Request $request){
+        return view("formslivresedit");
     }
 }

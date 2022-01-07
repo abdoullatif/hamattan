@@ -13,7 +13,7 @@
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Ajouter une thematique</h4>
-                            <span class="ml-1">ajout</span>
+                            <!--<span class="ml-1">ajout</span>-->
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -67,15 +67,16 @@
                                         -->
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Selectionner une couverture</span>
+                                                <span class="input-group-text">Image</span>
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" name="image" class="custom-file-input">
-                                                <label class="custom-file-label">Choose file</label>
+                                                <label class="custom-file-label">Selectionner une image</label>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" class="form-control input-default " value="Enregistrer">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 mb-2">Enregistrer</button>
+                                            <!--<input type="submit" class="form-control input-default " value="Enregistrer">-->
                                         </div>
                                     </form>
                                 </div>

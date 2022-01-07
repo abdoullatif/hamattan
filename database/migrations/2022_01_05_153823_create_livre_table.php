@@ -19,6 +19,7 @@ class CreateLivreTable extends Migration
             $table->string('resume_livre');
             $table->string('biographie_auteur');
             $table->string('statut');
+            $table->string('categorie');
             $table->string('prix');
             $table->string('couverture_livre');
             $table->string('date_publication');

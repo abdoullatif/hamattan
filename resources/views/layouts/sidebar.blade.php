@@ -8,7 +8,7 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Menu Principale</li>
-                    <li><a href="/" aria-expanded="false"><i class="fa fa-tachometer"></i><span
+                    <li><a href="/home" aria-expanded="false"><i class="fa fa-tachometer"></i><span
                                 class="nav-text">Dashboard</span></a></li>
 
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
@@ -18,6 +18,7 @@
                             <li><a href="/themes/forms">Ajouter un theme</a></li>
                         </ul>
                     </li>
+                    <!--
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="fa fa-glass"></i><span class="nav-text">Categories</span></a>
                         <ul aria-expanded="false">
@@ -25,12 +26,21 @@
                             <li><a href="/categories/forms">Ajouter une categorie</a></li>
                         </ul>
                     </li>
+                    -->
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="fa fa-book"></i><span class="nav-text">Livres</span></a>
                         <ul aria-expanded="false">
                             <li><a href="/livres">Livres</a></li>
                             <li><a href="/livres/forms">Ajouter un livre</a></li>
-                            <li><a href="/livres/content">Ajouter du contenu</a></li>
+                            <!--<li><a href="/livres/content">Ajouter du contenu</a></li>-->
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                                class="fa fa-users"></i><span class="nav-text">Administrateur</span></a>
+                        <ul aria-expanded="false">
+                            <li><a href="#">Ajouter un utilisateur</a></li>
+                            <li><a href="#">Tous les utilisateur</a></li>
+                            <!--<li><a href="/livres/content">Ajouter du contenu</a></li>-->
                         </ul>
                     </li>
                     <!--

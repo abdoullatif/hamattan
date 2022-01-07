@@ -13,7 +13,7 @@
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>Biblioteque</h4>
-                            <span class="ml-1">Livres</span>
+                            <!--<span class="ml-1">Livres</span>-->
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -50,16 +50,17 @@
                       <div class="col-md-4">
                         <div class="card">
                           <div class="card-header">
-                            <h5 class="card-title">Livre</h5>
+                            <h5 class="card-title">{{ $livre->titre }}</h5>
                           </div>
                           <div class="card-body">
-                            <img src="{{ asset('uploads/livres/'.$livre->couverture_livre.'') }}" alt="" width="100%" height="" />
+                            <img src="{{ asset('uploads/livres/'.$livre->titre.'/'.$livre->couverture_livre.'') }}" alt="" width="100%" height="" />
+                            <p>{{ $livre->resume_livre }}</p>
                           </div>
                           <div class="card-footer">
-                            <p class="card-text d-inline">Voir</p>
-                            <a href="javascript:void()" class="card-link float-right">Modifier</a>
+                            <p class="card-text d-inline">Categorie: {{ $livre->categorie }}</p>
+                            <a href="/livres/edit/{{ $livre->id }}" class="card-link float-right">Modifier</a>
                           </div>
-                          <!--
+                          <!-- javascript:void()
                           <div class="card-block">
                             <h4 class="card-title">Thematique</h4>
                             <h6 class="card-subtitle text-muted">Support card subtitle</h6>
