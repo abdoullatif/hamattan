@@ -11,10 +11,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     //index function
-    public function index (){
-        return view("login");
-        //return view("home");
-    }
+    public function index (){}
 
     public function showDashboad (){
         //Data

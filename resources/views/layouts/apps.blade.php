@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Harmattan guinee Dital </title>
+    <title>Harmattan guinee Digitale </title>
     <!-- Favicon icon {{ asset('') }}-->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
     <link href="{{ asset('assets/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+
+    <!-- Datatable -->
+    <link href="{{ asset('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    
     <!-- fontawesome -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -97,8 +101,11 @@
     <script src="{{ asset('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
     <script src="{{ asset('assets/vendor/jquery.counterup/jquery.counterup.min.js') }}"></script>
 
-
     <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
+
+    <!-- Datatable -->
+    <script src="{{ asset('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 </body>
 

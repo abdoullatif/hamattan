@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategorieController;
 
 /*
@@ -25,11 +28,29 @@ Route::get('/', function () {
 | Web Routes
 |--------------------------------------------------------------------------
 |
+| Auth route
+|
+*/
+//Login
+Route::get('/', [LoginController::class, 'index'])->name('login');
+//auth
+Route::post('/auth', [LoginController::class, 'customLogin'])->name('login.auth');
+//sigout
+Route::get('/signout', [LoginController::class, 'signOut'])->name('signout');
+//Register
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+//Register
+Route::get('/users', [UserController::class, 'showallUser'])->name('users');
+//Register add
+Route::post('/register/add', [RegisterController::class, 'customRegistration'])->name('register.add');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
 | Home route
 |
 */
-//Dashboard
-Route::get('/', [HomeController::class, 'index'])->name('login');
 //Dashboard
 Route::get('/home', [HomeController::class, 'showDashboad'])->name('home');
 /*

@@ -36,10 +36,10 @@
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="fa fa-users"></i><span class="nav-text">Administrateur</span></a>
+                                class="fa fa-user"></i><span class="nav-text">Utilisateur</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="#">Ajouter un utilisateur</a></li>
-                            <li><a href="#">Tous les utilisateur</a></li>
+                            <li><a href="/register">Ajouter un utilisateur</a></li>
+                            <li><a href="/users">Tous les utilisateur</a></li>
                             <!--<li><a href="/livres/content">Ajouter du contenu</a></li>-->
                         </ul>
                     </li>

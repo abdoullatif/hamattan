@@ -10,6 +10,7 @@ use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Models\Livre_categorie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class LivreController extends Controller
 {
@@ -95,6 +96,7 @@ class LivreController extends Controller
         $livre = new Livre;
         $livre->titre = $request->titre;
         $livre->theme_id = $request->theme_id;
+        $livre->users_id = Auth::user()->id;
         $livre->statut = '1';
         $livre->categorie = $request->categorie;
         $livre->resume_livre = $request->resume_livre;

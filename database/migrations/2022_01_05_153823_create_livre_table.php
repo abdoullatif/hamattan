@@ -24,6 +24,7 @@ class CreateLivreTable extends Migration
             $table->string('couverture_livre');
             $table->string('date_publication');
             $table->foreignId('theme_id')->constrained('theme')->onDelete('cascade');
+            $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -37,6 +38,7 @@ class CreateLivreTable extends Migration
     {
         schema::table('livre', function (Blueprint $table){
             $table->dropConstrainedForeignId('theme_id');
+            $table->dropConstrainedForeignId('users_id');
         });
         Schema::dropIfExists('livre');
     }

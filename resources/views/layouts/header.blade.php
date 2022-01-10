@@ -123,7 +123,7 @@
                                         <i class="fa fa-info-circle"></i>
                                         <span class="ml-2">Mes informations </span>
                                     </a>
-                                    <a href="/" class="dropdown-item">
+                                    <a href="/signout" class="dropdown-item">
                                         <i class="icon-key"></i>
                                         <span class="ml-2">Se Deconnecter </span>
                                     </a>

@@ -111,7 +111,7 @@
                                             </div>
 
                                             <div class="form-group text-center">
-                                                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 mb-2">Modifier</button>
+                                                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 mb-2">Mettre a jour</button>
                                                 <!--<input type="submit" class="btn btn-primary form-control " value="Enregistrer">-->
                                             </div>
                                         </form>

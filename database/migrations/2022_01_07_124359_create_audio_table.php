@@ -30,7 +30,6 @@ class CreateAudioTable extends Migration
     {
         schema::table('audio', function (Blueprint $table){
             $table->dropConstrainedForeignId('livre_id');
-            $table->dropConstrainedForeignId('categorie_id');
         });
         Schema::dropIfExists('audio');
     }

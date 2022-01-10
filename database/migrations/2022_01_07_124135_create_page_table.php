@@ -30,7 +30,6 @@ class CreatePageTable extends Migration
     {
         schema::table('page', function (Blueprint $table){
             $table->dropConstrainedForeignId('livre_id');
-            $table->dropConstrainedForeignId('categorie_id');
         });
         Schema::dropIfExists('page');
     }
