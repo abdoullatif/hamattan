@@ -3,7 +3,7 @@
             Nav header start
         *********************************** {{ asset('assets/') }} -->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="/home" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('assets/images/logo.png') }}" alt="">
                 <!--
                 <img class="logo-compact" src="{{ asset('assets/images/logo-text.png') }}" alt="">
@@ -46,7 +46,7 @@
                             <li class="nav-item dropdown notification_dropdown">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
+                                    <!--Si il ya des notif <div class="pulse-css"></div>-->
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <ul class="list-unstyled">
@@ -108,9 +108,14 @@
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <i class="mdi mdi-account"></i>
+                                    {{ strtoupper(Auth::user()->nom) }} {{ substr(strtoupper(Auth::user()->prenom),0,10) }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <!--
+                                    <a href="" class="dropdown-item">
+                                        <i class="fa fa-user"></i>
+                                        {{ Auth::user()->nom }} {{ Auth::user()->prenom }}
+                                    </a>
                                     <a href="./app-profile.html" class="dropdown-item">
                                         <i class="icon-user"></i>
                                         <span class="ml-2">Profile </span>
@@ -119,7 +124,7 @@
                                         <i class="icon-envelope-open"></i>
                                         <span class="ml-2">Inbox </span>
                                     </a>-->
-                                    <a href="#" class="dropdown-item">
+                                    <a href="/profile" class="dropdown-item">
                                         <i class="fa fa-info-circle"></i>
                                         <span class="ml-2">Mes informations </span>
                                     </a>

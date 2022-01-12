@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategorieController;
 
@@ -100,3 +101,15 @@ Route::post('/livres/add', [LivreController::class, 'storeLivres'])->name('livre
 Route::get('/livres/edit/{livre_id}', [LivreController::class, 'editLivres'])->name('livres.edit');
 //Add Livre contenue
 Route::get('/livres/update', [LivreController::class, 'updateLivres'])->name('livres.update');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Profile route
+|
+*/
+//Profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+//Profile add
+Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.update');

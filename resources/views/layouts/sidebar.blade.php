@@ -35,6 +35,7 @@
                             <!--<li><a href="/livres/content">Ajouter du contenu</a></li>-->
                         </ul>
                     </li>
+                    @if(Auth::user()->role == "admin")
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="fa fa-user"></i><span class="nav-text">Utilisateur</span></a>
                         <ul aria-expanded="false">
@@ -43,6 +44,7 @@
                             <!--<li><a href="/livres/content">Ajouter du contenu</a></li>-->
                         </ul>
                     </li>
+                    @endif
                     <!--
                     <li><a href="#" aria-expanded="false"><i class="icon icon-globe-2"></i><span
                                 class="nav-text">Categories</span></a></li>-->

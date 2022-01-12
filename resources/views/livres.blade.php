@@ -54,7 +54,7 @@
                           </div>
                           <div class="card-body">
                             <img src="{{ asset('uploads/livres/'.$livre->titre.'/'.$livre->couverture_livre.'') }}" alt="" width="100%" height="" />
-                            <p>{{ $livre->resume_livre }}</p>
+                            <p>{{ substr($livre->resume_livre,0,150) }} ...</p>
                           </div>
                           <div class="card-footer">
                             <p class="card-text d-inline">Categorie: {{ $livre->categorie }}</p>

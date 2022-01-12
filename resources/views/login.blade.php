@@ -12,15 +12,34 @@
 
 </head>
 
-<body class="h-100">
+<body class="h-100" style="
+    background: no-repeat center url('{{ asset('assets/images/background/background.jpg') }}') ;
+    background-size: cover;
+">
     <div class="authincation h-100">
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-6">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
                     <div class="authincation-content">
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
+                                    <p class="text-center"><img class="" src="{{ asset('assets/images/logo-main.png') }}" alt="" width="150px" height="70px"/></p>
                                     <h4 class="text-center mb-4">Connectez-vous à votre compte</h4>
                                     <form action="{{ route('login.auth') }}" method="post">
                                         @csrf
@@ -40,7 +59,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <a href="page-forgot-password.html">Mot de passe oublié?</a>
+                                                <a href="">Mot de passe oublié?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">

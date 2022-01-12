@@ -29,7 +29,7 @@ class LoginController extends Controller
                         //->withSuccess('Signed in')
         }
   
-        return redirect("login")->withSuccess('Les informations de connexion ne sont pas valides');
+        return redirect("/")->withErrors('Les informations de connexion ne sont pas valides');
     }
 
     //dashboard
