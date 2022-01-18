@@ -17,6 +17,7 @@ class CreateThemeTable extends Migration
             $table->id();
             $table->string('nom_theme');
             $table->string('couverture_theme');
+            $table->string('flagtransmis');
             $table->timestamps();
         });
     }

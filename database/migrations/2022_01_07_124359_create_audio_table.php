@@ -17,6 +17,7 @@ class CreateAudioTable extends Migration
             $table->id();
             $table->string('contenue_audio');
             $table->foreignId('livre_id')->constrained('livre')->onDelete('cascade');
+            $table->string('flagtransmis');
             $table->timestamps();
         });
     }

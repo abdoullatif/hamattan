@@ -25,6 +25,7 @@ class CreateLivreTable extends Migration
             $table->string('date_publication');
             $table->foreignId('theme_id')->constrained('theme')->onDelete('cascade');
             $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
+            $table->string('flagtransmis');
             $table->timestamps();
         });
     }

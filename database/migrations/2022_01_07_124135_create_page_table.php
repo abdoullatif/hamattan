@@ -17,6 +17,7 @@ class CreatePageTable extends Migration
             $table->id();
             $table->string('page_livre');
             $table->foreignId('livre_id')->constrained('livre')->onDelete('cascade');
+            $table->string('flagtransmis');
             $table->timestamps();
         });
     }

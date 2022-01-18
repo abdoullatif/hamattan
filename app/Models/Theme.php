@@ -9,7 +9,7 @@ class Theme extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom_theme','couverture_theme'];
+    protected $fillable = ['nom_theme','couverture_theme','flagtransmis'];
 
     protected $table = 'theme';
 }

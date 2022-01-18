@@ -9,7 +9,7 @@ class Page extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['page_livre','livre_id'];
+    protected $fillable = ['page_livre','livre_id','flagtransmis'];
 
     protected $table = 'page';
 }

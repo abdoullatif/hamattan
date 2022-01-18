@@ -9,7 +9,7 @@ class Audio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['contenue_audio','livre_id'];
+    protected $fillable = ['contenue_audio','livre_id','flagtransmis'];
 
     protected $table = 'audio';
 }

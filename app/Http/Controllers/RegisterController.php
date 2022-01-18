@@ -51,6 +51,7 @@ class RegisterController extends Controller
         'password' => Hash::make($data['password']),
         'role' => $data['role'],
         'avatar' => $data['avatar'],
+        'flagtransmis' => now(),
       ]);
     }
 

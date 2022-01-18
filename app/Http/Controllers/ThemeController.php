@@ -39,6 +39,7 @@ class ThemeController extends Controller
         $theme = new Theme;
         $theme->nom_theme = $request->theme;
         $theme->couverture_theme = $request->image;
+        $theme->flagtransmis = now();
         $theme->save();
     
         //Theme::create($input);
@@ -81,6 +82,7 @@ class ThemeController extends Controller
         $theme = new Theme;
         $theme->nom_theme = $request->theme;
         $theme->couverture_theme = $request->image;
+        $theme->flagtransmis = now();
         $theme->update();
 
         //$product->update($input);

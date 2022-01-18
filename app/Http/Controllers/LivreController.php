@@ -45,12 +45,14 @@ class LivreController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
 
+        $titre = str_replace(' ','_',$request->titre);
+
         if($request->categorie == "Ecriture") {
             $request->validate([
                 'page' => 'required|mimes:pdf', //required|doc|mimes:pdf|max:10024
             ]);
             if ($image = $request->file('page')) {
-                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $destinationPath = 'uploads/livres/'.$titre.'/';
                 $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $profileImage);
                 $request->page = "$profileImage";
@@ -60,7 +62,7 @@ class LivreController extends Controller
                 'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav', //required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav //required|audio|mimes:mp3,aac,mp4a|max:10024
             ]);
             if ($image = $request->file('audio')) {
-                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $destinationPath = 'uploads/livres/'.$titre.'/';
                 $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $profileImage);
                 $request->audio = "$profileImage";
@@ -71,13 +73,13 @@ class LivreController extends Controller
                 'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
             ]);
             if ($image = $request->file('page')) {
-                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $destinationPath = 'uploads/livres/'.$titre.'/';
                 $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $profileImage);
                 $request->page = "$profileImage";
             }
             if ($image = $request->file('audio')) {
-                $destinationPath = 'uploads/livres/'.$request->titre.'/';
+                $destinationPath = 'uploads/livres/'.$titre.'/';
                 $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
                 $image->move($destinationPath, $profileImage);
                 $request->audio = "$profileImage";
@@ -85,7 +87,7 @@ class LivreController extends Controller
         }
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'uploads/livres/'.$request->titre.'/';
+            $destinationPath = 'uploads/livres/'.$titre.'/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request->image = "$profileImage";
@@ -93,8 +95,10 @@ class LivreController extends Controller
 
         //livre
 
+        
+
         $livre = new Livre;
-        $livre->titre = $request->titre;
+        $livre->titre = $titre;
         $livre->theme_id = $request->theme_id;
         $livre->users_id = Auth::user()->id;
         $livre->statut = '1';
@@ -104,6 +108,7 @@ class LivreController extends Controller
         $livre->prix = $request->prix;
         $livre->couverture_livre = $request->image;
         $livre->date_publication = now();
+        $livre->flagtransmis = now();
         $livre->save();
 
         //audio und pdf
@@ -112,23 +117,27 @@ class LivreController extends Controller
             $page = new Page;
             $page->livre_id = $livre->id;
             $page->page_livre = $request->page;
+            $page->flagtransmis = now();
             $page->save();
         } else if ($request->categorie == "Audio") {
             //Audio
             $audio = new Audio;
             $audio->livre_id = $livre->id;
             $audio->contenue_audio = $request->audio;
+            $audio->flagtransmis = now();
             $audio->save();
         } else if ($request->categorie == "Ecriture + Audio") {
             //Page
             $page = new Page;
             $page->livre_id = $livre->id;
             $page->page_livre = $request->page;
+            $page->flagtransmis = now();
             $page->save();
             //Audio
             $audio = new Audio;
             $audio->livre_id = $livre->id;
             $audio->contenue_audio = $request->audio;
+            $audio->flagtransmis = now();
             $audio->save();
         }
 
