@@ -63,12 +63,21 @@
                                                 @endforeach
                                             </select>
                                         </div>
+
                                         <div class="form-group">
                                             <label>Categories</label>
                                             <select class="form-control" name="categorie" onchange="categorieControl(this.value)" id="sel2">
                                                 <option value="Ecriture"> Ecriture </option>
                                                 <option value="Audio"> Audio </option>
                                                 <option value="Ecriture + Audio"> Ecriture + Audio </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Type de vente</label>
+                                            <select class="form-control" name="type_vente">
+                                                <option value="Standard"> Standard  </option>
+                                                <option value="Promo"> Promo </option>
                                             </select>
                                         </div>
 
@@ -100,7 +109,17 @@
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" name="image" class="custom-file-input">
-                                                <label class="custom-file-label">Selectionner un fichier</label>
+                                                <label class="custom-file-label">Selectionner une image</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="input-group mb-3 mt-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Extraire du livre</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" name="extraire" class="custom-file-input">
+                                                <label class="custom-file-label">Selectionner un fichier pdf</label>
                                             </div>
                                         </div>
 
@@ -108,21 +127,21 @@
 
                                         <div class="input-group mb-3 pdf">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Contenue PDF</span>
+                                                <span class="input-group-text">Livre</span>
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" name="page" class="custom-file-input">
-                                                <label class="custom-file-label">Selectionner un fichier</label>
+                                                <label class="custom-file-label">Selectionner un fichier pdf</label>
                                             </div>
                                         </div>
 
                                         <div class="input-group mb-3 mp3">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Contenue Audio</span>
+                                                <span class="input-group-text">Audio</span>
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" name="audio" class="custom-file-input">
-                                                <label class="custom-file-label">Selectionner un fichier</label>
+                                                <label class="custom-file-label">Selectionner un fichier mpeg/mpga/mp3/wav</label>
                                             </div>
                                         </div>
 

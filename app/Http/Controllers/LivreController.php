@@ -42,7 +42,9 @@ class LivreController extends Controller
             'resume_livre' => 'required',
             'biographie_auteur' => 'required',
             'prix' => 'required',
+            'type_vente' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'extraire' => 'required|mimes:pdf',
         ]);
 
         $titre = str_replace(' ','_',$request->titre);
@@ -86,11 +88,22 @@ class LivreController extends Controller
             }
         }
 
+        //image 
+
         if ($image = $request->file('image')) {
             $destinationPath = 'uploads/livres/'.$titre.'/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $request->image = "$profileImage";
+        }
+
+        //Extraire
+
+        if ($image = $request->file('extraire')) {
+            $destinationPath = 'uploads/livres/'.$titre.'/';
+            $profileImage = "Extraire" . date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $request->extraire = "$profileImage";
         }
 
         //livre
@@ -105,8 +118,10 @@ class LivreController extends Controller
         $livre->categorie = $request->categorie;
         $livre->resume_livre = $request->resume_livre;
         $livre->biographie_auteur = $request->biographie_auteur;
+        $livre->type_vente = $request->type_vente;
         $livre->prix = $request->prix;
         $livre->couverture_livre = $request->image;
+        $livre->extraire = $request->extraire;
         $livre->date_publication = now();
         $livre->flagtransmis = now();
         $livre->save();

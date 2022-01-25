@@ -16,12 +16,14 @@ class CreateLivreTable extends Migration
         Schema::create('livre', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('resume_livre');
-            $table->string('biographie_auteur');
+            $table->text('resume_livre');
+            $table->text('biographie_auteur');
             $table->string('statut');
             $table->string('categorie');
+            $table->string('type_vente');
             $table->string('prix');
             $table->string('couverture_livre');
+            $table->string('extraire');
             $table->string('date_publication');
             $table->foreignId('theme_id')->constrained('theme')->onDelete('cascade');
             $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
