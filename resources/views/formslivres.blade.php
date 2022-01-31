@@ -175,7 +175,7 @@
                 mp3.style.display = "";
             } else if (sel2.value == "Ecriture + Audio") {
                 pdf.style.display = "";
-                mp3.style.display = "";
+                mp3.style.display = ""; //;sojg
             } else {
                 pdf.style.display = "none";
                 mp3.style.display = "none";
