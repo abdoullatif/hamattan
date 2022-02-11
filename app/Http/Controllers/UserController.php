@@ -14,7 +14,7 @@ class UserController extends Controller
 
     //Page itilisateur
     public function showallUser (){
-        $users = User::get();
+        $users = User::where('id','!=',1)->get();
         return view("users",compact('users'));
     }
 

@@ -56,6 +56,14 @@
                                                 </select>
                                             </div>
 
+                                            <div class="form-group">
+                                                <label>Type de vente</label>
+                                                <select class="form-control" name="type_vente">
+                                                    <option value="Standard" <?php if($livre[0]->type_vente == "Standard") echo "selected" ?> > Standard  </option>
+                                                    <option value="Promo" <?php if($livre[0]->type_vente == "Promo") echo "selected" ?> > Promo </option>
+                                                </select>
+                                            </div>
+
                                             <div class="input-group mb-4 mt-4">
                                                 <input type="text" class="form-control" name="prix" value="{{ $livre[0]->prix }}" placeholder="Prix de vente">
                                                 <div class="input-group-append">
@@ -85,6 +93,16 @@
                                                 <div class="custom-file">
                                                     <input type="file" name="image" class="custom-file-input">
                                                     <label class="custom-file-label">Selectionner un fichier</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="input-group mb-3 mt-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Extraire du livre</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" name="extraire" class="custom-file-input">
+                                                    <label class="custom-file-label">Selectionner un fichier pdf</label>
                                                 </div>
                                             </div>
 
@@ -138,9 +156,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr>
+                                                <th>Extraire</th>
+                                                <td>{{ $livre[0]->extraire }}</td>
+                                                <!--<td><span class="badge badge-primary">Sale</span>
+                                                </td>
+                                                <td>January 22</td>-->
+                                                <!--<td class="color-primary">$21.56</td>-->
+                                                <td>
+                                                    <span>
+                                                        <!--<a href="javascript:void()" class="mr-4" data-toggle="tooltip"
+                                                            data-placement="top" title="Edit"><i
+                                                                class="fa fa-pencil color-muted"></i> </a>-->
+                                                        <a href="javascript:void()" data-toggle="tooltip"
+                                                            data-placement="top" title="Close"><i
+                                                                class="fa fa-close color-danger"></i></a>
+                                                    </span>
+                                                </td>
+                                            </tr>
                                             @if($page->isNotEmpty())
                                             <tr>
-                                                <th>Ecriture</th>
+                                                <th>Livre Ecrit</th>
                                                 <td>{{ $page[0]->page_livre }}</td>
                                                 <!--<td><span class="badge badge-primary">Sale</span>
                                                 </td>
