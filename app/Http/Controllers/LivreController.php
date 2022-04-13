@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Audio;
 use App\Models\Livre;
 use App\Models\Theme;
+use App\Models\Langue;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Models\Livre_categorie;
@@ -18,17 +19,17 @@ class LivreController extends Controller
     public function index (){
         //Data
         $themes = Theme::get();
-        $categories = Categorie::get();
+        $langues = Langue::get();
         $livres = Livre::get();
-        return view("livres",compact('themes','categories','livres'));
+        return view("livres",compact('themes','langues','livres'));
     }
 
     //Show add livre
     public function showFormsLivres (){
         //Data
         $themes = Theme::get();
-        $categories = Categorie::get();
-        return view("formslivres",compact('themes','categories'));
+        $langues = Langue::get();
+        return view("formslivres",compact('themes','langues'));
     }
 
     //Show Controller (Afficher kes themes)
@@ -138,6 +139,7 @@ class LivreController extends Controller
             //Audio
             $audio = new Audio;
             $audio->livre_id = $livre->id;
+            $audio->langue_id = $request->langue;
             $audio->contenue_audio = $request->audio;
             $audio->flagtransmis = now();
             $audio->save();
@@ -151,6 +153,7 @@ class LivreController extends Controller
             //Audio
             $audio = new Audio;
             $audio->livre_id = $livre->id;
+            $audio->langue_id = $request->langue;
             $audio->contenue_audio = $request->audio;
             $audio->flagtransmis = now();
             $audio->save();
@@ -169,9 +172,10 @@ class LivreController extends Controller
         $livre = DB::table('livre')->where('id',$livre_id)->get();
         $page = DB::table('page')->where('livre_id',$livre_id)->get();
         $audio = DB::table('audio')->where('livre_id',$livre_id)->get();
+        $langues = Langue::get();
         
         //$livre = DB::select('SELECT * FROM livre WHERE name = ?',[]);
-        return view("editlivres",compact('themes','livre','page','audio'));
+        return view("editlivres",compact('themes','livre','page','audio','langues'));
     }
 
     //Update livre

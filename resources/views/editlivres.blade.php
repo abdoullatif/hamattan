@@ -118,13 +118,24 @@
                                                 </div>
                                             </div>
 
-                                            <div class="input-group mb-3 mp3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Contenue Audio</span>
+                                            <div class="mp3">
+                                                <div class="form-group">
+                                                    <label>Langue Audio</label>
+                                                    <select class="form-control" name="langue">
+                                                        @foreach($langues as $langue)
+                                                        <option value="{{ $langue->id }}" <?php if($audio[0]->langue_id == $langue->id) echo "selected" ?> >{{ $langue->langue }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
-                                                <div class="custom-file">
-                                                    <input type="file" name="audio" class="custom-file-input">
-                                                    <label class="custom-file-label">Selectionner un fichier</label>
+
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Audio</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input type="file" name="audio" class="custom-file-input">
+                                                        <label class="custom-file-label">Selectionner un fichier mpeg/mpga/mp3/wav</label>
+                                                    </div>
                                                 </div>
                                             </div>
 

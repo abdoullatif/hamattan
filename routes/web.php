@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\LangueController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategorieController;
@@ -83,6 +84,21 @@ Route::get('/categories', [CategorieController::class, 'index'])->name('categori
 Route::get('/categories/forms', [CategorieController::class, 'showFormsCategories'])->name('categories.forms');
 //Add Categories
 Route::post('/categories/add', [CategorieController::class, 'storeCategories'])->name('categories.add');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Langue route
+|
+*/
+//Langue
+//Add Categories
+Route::get('/langue', [LangueController::class, 'index'])->name('langue');
+//Add Categories
+Route::get('/langue/forms', [LangueController::class, 'showFormsLangue'])->name('langue.forms');
+//Add Categories
+Route::post('/langue/add', [LangueController::class, 'storeLangue'])->name('langue.add');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
