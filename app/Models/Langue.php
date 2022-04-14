@@ -9,7 +9,7 @@ class Langue extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['langue','flagtransmis'];
+    protected $fillable = ['langue','image','flagtransmis'];
 
     protected $table = 'langue';
 }

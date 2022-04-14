@@ -64,7 +64,7 @@
                                         <tbody>
                                             @foreach($themes as $theme)
                                             <tr>
-                                                <th>1</th>
+                                                <th>{{ $loop->index + 1 }}</th>
                                                 <td><img src="{{ asset('uploads/themes/'.$theme->couverture_theme.'') }}" alt="Thematique" width="100" height="" /></td>
                                                 <td>{{ $theme->nom_theme }}</td>
                                                 <!--<td><span class="badge badge-primary">Sale</span>

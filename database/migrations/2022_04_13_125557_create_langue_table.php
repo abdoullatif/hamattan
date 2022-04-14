@@ -16,6 +16,7 @@ class CreateLangueTable extends Migration
         Schema::create('langue', function (Blueprint $table) {
             $table->id();
             $table->string('langue');
+            $table->string('image');
             $table->string('flagtransmis');
             $table->timestamps();
         });

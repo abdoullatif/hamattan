@@ -53,6 +53,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Image</th>
                                                 <th>Langue</th>
                                                 <!--<th>Status</th>
                                                 <th>Date</th>-->
@@ -64,6 +65,7 @@
                                             @foreach($langues as $langue)
                                             <tr>
                                                 <th>{{ $loop->index + 1 }}</th>
+                                                <td><img src="{{ asset('uploads/langues/'.$langue->image.'') }}" alt="Thematique" width="100" height="" /></td>
                                                 <td>{{ $langue->langue }}</td>
                                                 <!--<td><span class="badge badge-primary">Sale</span>
                                                 </td>

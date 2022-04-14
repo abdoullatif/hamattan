@@ -64,7 +64,7 @@
                                                 <option>4</option>
                                             </select>
                                         </div>
-                                        
+                                        -->
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Image</span>
@@ -74,7 +74,7 @@
                                                 <label class="custom-file-label">Selectionner une image</label>
                                             </div>
                                         </div>
-                                        -->
+                                        
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 mb-2">Enregistrer</button>
                                             <!--<input type="submit" class="form-control input-default " value="Enregistrer">-->

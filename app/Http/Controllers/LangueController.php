@@ -23,10 +23,21 @@ class LangueController extends Controller
         //Require
         $request->validate([
             'langue' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
         ]);
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'uploads/langues/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $request->image = "$profileImage";
+        }else{
+            unset($request->image);
+        }
 
         $langue = new Langue;
         $langue->langue = $request->langue;
+        $langue->image = $request->image;
         $langue->flagtransmis = now();
         $langue->save();
 
