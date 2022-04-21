@@ -179,7 +179,103 @@ class LivreController extends Controller
     }
 
     //Update livre
-    public function updateLivres (Request $request){
+    public function updateLivres (){
         return view("formslivresedit");
     }
+
+    //livre add contente
+    public function addContentLivres (){
+        $livres = Livre::get();
+        $langues = Langue::get();
+        return view("formsaddcontent",compact('livres','langues'));
+    }
+
+    //livre store contente
+    public function storeContentLivres (Request $request){
+        //Require
+        $request->validate([
+            'livre_id' => 'required',
+        ]);
+
+        //
+        $livre = DB::table('livre')->where('id',$request->livre_id)->get();
+        $titre = str_replace(' ','_',$livre[0]->titre);
+
+        if($request->categorie == "Ecriture") {
+            $request->validate([
+                'page' => 'required|mimes:pdf', //required|doc|mimes:pdf|max:10024
+            ]);
+            if ($image = $request->file('page')) {
+                $destinationPath = 'uploads/livres/'.$titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->page = "$profileImage";
+            }
+        }else if ($request->categorie == "Audio") {
+            $request->validate([
+                'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav', //required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav //required|audio|mimes:mp3,aac,mp4a|max:10024
+            ]);
+            if ($image = $request->file('audio')) {
+                $destinationPath = 'uploads/livres/'.$titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->audio = "$profileImage";
+            }
+        }else if ($request->categorie == "Ecriture + Audio") {
+            $request->validate([
+                'page' => 'required|mimes:pdf',
+                'audio' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+            ]);
+            if ($image = $request->file('page')) {
+                $destinationPath = 'uploads/livres/'.$titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->page = "$profileImage";
+            }
+            if ($image = $request->file('audio')) {
+                $destinationPath = 'uploads/livres/'.$titre.'/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $request->audio = "$profileImage";
+            }
+        }
+
+        //audio und pdf
+        if($request->categorie == "Ecriture") {
+            //Page
+            $page = new Page;
+            $page->livre_id = $request->livre_id;
+            $page->page_livre = $request->page;
+            $page->flagtransmis = now();
+            $page->save();
+        } else if ($request->categorie == "Audio") {
+            //Audio
+            $audio = new Audio;
+            $audio->livre_id = $request->livre_id;
+            $audio->langue_id = $request->langue;
+            $audio->contenue_audio = $request->audio;
+            $audio->flagtransmis = now();
+            $audio->save();
+        } else if ($request->categorie == "Ecriture + Audio") {
+            //Page
+            $page = new Page;
+            $page->livre_id = $request->livre_id;
+            $page->page_livre = $request->page;
+            $page->flagtransmis = now();
+            $page->save();
+            //Audio
+            $audio = new Audio;
+            $audio->livre_id = $request->livre_id;
+            $audio->langue_id = $request->langue;
+            $audio->contenue_audio = $request->audio;
+            $audio->flagtransmis = now();
+            $audio->save();
+        }
+
+        return redirect()->route('livres')
+                        ->with('success','contenue enregistrer avec succes.');
+    }
+
+    
+    
 }

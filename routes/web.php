@@ -113,10 +113,14 @@ Route::get('/livres', [LivreController::class, 'index'])->name('livres');
 Route::get('/livres/forms', [LivreController::class, 'showFormsLivres'])->name('livres.forms');
 //Add Livre
 Route::post('/livres/add', [LivreController::class, 'storeLivres'])->name('livres.add');
-//Add Livre contenue
+//Add Livre edit
 Route::get('/livres/edit/{livre_id}', [LivreController::class, 'editLivres'])->name('livres.edit');
-//Add Livre contenue
+//Add Livre update
 Route::get('/livres/update', [LivreController::class, 'updateLivres'])->name('livres.update');
+//Add Livre add content
+Route::get('/livres/content', [LivreController::class, 'addContentLivres'])->name('livres.add.content');
+//Add Livre add content
+Route::post('/livres/content/add', [LivreController::class, 'storeContentLivres'])->name('livres.store.content');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
